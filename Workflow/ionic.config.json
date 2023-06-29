@@ -1,0 +1,7 @@
+{
+  "name": "Workflow",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
