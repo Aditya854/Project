@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+         <!-- add the buttons-->
+         <input [(ngModel)]="userInput"  class="inpbox">
+         <button (click)="onInpch()" class="btn btn-primary btn-sm">Enter</button>
+
+         <ejs-dropdownlist [dataSource]='ruledata' [fields]='dataField' placeholder='Select Rule'>
+         
+         </ejs-dropdownlist>
+      </ion-buttons>
+
+      
+      <ion-title class="centered-title">
+        My Workflow
+      </ion-title>
+      <ion-buttons slot="end">
+        <!-- add the buttons-->
+     </ion-buttons>
+    </ion-toolbar>
+</ion-header>
