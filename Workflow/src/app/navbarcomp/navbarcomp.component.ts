@@ -6,7 +6,14 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./navbarcomp.component.scss'],
 })
 export class NavbarcompComponent  implements OnInit {
+  // onclick(value : string)
+  // {
+  //    console.log(value);
+  // }
    userInput!: string;
+   Input!:number;
+  //  selectedRule!:string;
+   selectedValue!: string;
    selectedRule!:string;
 
    public dataField: Object = {text:'Rule', value:'Id'};
@@ -26,9 +33,26 @@ export class NavbarcompComponent  implements OnInit {
     console.log(this.userInput);
   }
 
-  onRule()
+  onInpch2()
   {
-    console.log(this.selectedRule);
+    console.log(this.Input);
   }
+
+  onclick3()
+  {
+    console.log('success');
+  }
+
+  onclick4()
+  {
+    console.log('Execute');
+  }
+
+  onOptionSelected(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    console.log(value);
+  }
+
+  
 
 }
