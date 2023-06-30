@@ -40,8 +40,9 @@ export class NavbarcompComponent  implements OnInit {
 
   onclick3()
   {
-    console.log('success');
+    console.log('Save');
   }
+  
 
   onclick4()
   {
