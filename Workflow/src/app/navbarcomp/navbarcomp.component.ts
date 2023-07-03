@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-navbarcomp',
@@ -10,6 +10,10 @@ export class NavbarcompComponent  implements OnInit {
   // {
   //    console.log(value);
   // }
+
+  @Input() val1=true;
+  @Input() val2=true;
+  @Input() val3=true;
    userInput!: string;
    Input!:number;
   //  selectedRule!:string;
@@ -48,6 +52,24 @@ export class NavbarcompComponent  implements OnInit {
   {
     console.log('Execute');
   }
+
+  // func1(){
+  //   console.log(this.val1);
+  //    this.val1=!this.val1;
+  //    console.log(this.val1);
+  // }
+
+  // func2(){
+  //   console.log(this.val2);
+  //   this.val2=!this.val2;
+  //   console.log(this.val2);
+  // }
+
+  // func3(){
+  //   console.log(this.val3);
+  //   this.val3=!this.val3;
+  //   console.log(this.val3);
+  // }
 
   onOptionSelected(event: Event) {
     const value = (event.target as HTMLSelectElement).value;

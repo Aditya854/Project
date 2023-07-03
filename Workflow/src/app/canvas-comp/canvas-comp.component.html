@@ -1,5 +1,21 @@
-<h5 style="text-align: center; padding-top: 10px;">canvas</h5>
-<button ng-click="addRectangle()">Add Rectangle</button>
+<div style="background-color: rgb(204, 234, 234); height: 100%;">
+<h5 style="text-align: center; padding-top: 10px; ">canvas</h5>
+<!-- <button (click)="toggledisp()">toggle disp</button> -->
+<div>
+<select (change)="onOptionSelected($event)">
+    <option value="">Select an option</option>
+    <option value="1" >Rule X</option>
+    <option value="2">Rule M</option>
+    <option value="3">Rule N</option>
+  </select>
+</div>
+<br>
 
-<canvas  #canvas style="border: 1px solid; background-color: rgb(204, 234, 234); width: 1300px; height: 500;">
-</canvas>
+<!-- <canvas  #canvas style="border: 1px solid; background-color: rgb(204, 234, 234); width: 1300px; height: 500;"> -->
+    <div >
+    <div [hidden]="val1" class="example-box" cdkDrag> Rule X</div>
+    <div [hidden]="val2" class="example-box" cdkDrag> Rule M</div>
+    <div [hidden]="val3" class="example-box" cdkDrag> Rule N</div>
+    </div>
+<!-- </canvas> --> 
+</div>
