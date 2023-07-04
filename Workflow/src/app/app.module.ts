@@ -14,9 +14,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import {fabric} from 'fabric';
 import { CdkDrag } from '@angular/cdk/drag-drop';
+import { DragDropModule} from '@angular/cdk/drag-drop';
 @NgModule({
   declarations: [AppComponent,Page2Component,NavbarcompComponent,CanvasCompComponent],
-  imports: [FormsModule,MatIconModule,MatMenuModule,DropDownListModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,CdkDrag],
+  imports: [DragDropModule,FormsModule,MatIconModule,MatMenuModule,DropDownListModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,CdkDrag],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

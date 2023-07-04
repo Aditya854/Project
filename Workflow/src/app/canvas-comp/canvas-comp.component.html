@@ -1,21 +1,48 @@
 <div style="background-color: rgb(204, 234, 234); height: 100%;">
-<h5 style="text-align: center; padding-top: 10px; ">canvas</h5>
-<!-- <button (click)="toggledisp()">toggle disp</button> -->
-<div>
+<!-- <h5 style="text-align: center; padding-top: 10px; ">canvas</h5>
+<button (click)="toggledisp()">toggle disp</button>
+<div> -->
+  <br>
 <select (change)="onOptionSelected($event)">
     <option value="">Select an option</option>
-    <option value="1" >Rule X</option>
-    <option value="2">Rule M</option>
-    <option value="3">Rule N</option>
+    <option value="1" >Rule 1</option>
+    <option value="2">Rule 2</option>
+    <option value="3">Rule 3</option>
   </select>
-</div>
+
 <br>
 
-<!-- <canvas  #canvas style="border: 1px solid; background-color: rgb(204, 234, 234); width: 1300px; height: 500;"> -->
+<!-- <canvas  #canvas style="border: 1px solid; background-color: rgb(204, 234, 234); width: 1300px; height: 500;">
     <div >
     <div [hidden]="val1" class="example-box" cdkDrag> Rule X</div>
     <div [hidden]="val2" class="example-box" cdkDrag> Rule M</div>
     <div [hidden]="val3" class="example-box" cdkDrag> Rule N</div>
     </div>
-<!-- </canvas> --> 
+</canvas> 
+</div> -->
+
+<!-- <button (click)="add()">Add</button>  -->
+<br />
+  <ul class="example-list">
+    <li *ngFor="let item of items">{{ item }}</li>
+  </ul>
+  
+  <div #dropListContainer class="example-container" cdkDropListGroup>
+    <div
+      *ngFor="let item of items; let i = index"
+      cdkDropList
+      [cdkDropListData]="i"
+    >
+      <div
+        cdkDrag
+        [cdkDragData]="i"
+        (cdkDragEntered)="dragEntered($event)"
+        (cdkDragMoved)="dragMoved($event)"
+        (cdkDragDropped)="dragDropped($event)"
+        class="example-box"
+      >
+        Rule {{ item }}
+      </div>
+    </div>
+  </div>
 </div>
