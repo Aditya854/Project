@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { Page2Component } from './page2/page2.component';
+import { Page3Page } from './page3/page3.page';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path:'page2',
     component: Page2Component,
+  },
+  {
+    path: 'page3',
+    loadChildren: () => import('./page3/page3.module').then( m => m.Page3PageModule)
   }
 ];
 

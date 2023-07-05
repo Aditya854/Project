@@ -1,6 +1,7 @@
 import { Component,ElementRef ,ViewChild,OnInit } from '@angular/core';
 import {fabric} from 'fabric';
 import { DragDropModule} from '@angular/cdk/drag-drop';
+import { Serv1Service } from '../services/serv1.service';
 import {
   CdkDragDrop,
   CdkDragEnter,
@@ -25,7 +26,7 @@ export class CanvasCompComponent  implements OnInit {
     dragIndex: number;
     dropIndex: number;
   };
-
+  arrayData!: any[];
 
   myArray:number[]=[];
   val1=true;
@@ -33,11 +34,18 @@ export class CanvasCompComponent  implements OnInit {
   val3=true;
   isShowDiv = true;
   @ViewChild('canvas',{static:true}) myCanvas!:ElementRef;
-  constructor() { }
+  constructor(private sharedService: Serv1Service) { }
 
 
   ngOnInit():void{
+    this.arrayData = this.sharedService.arrayData;
+    console.log(this.arrayData);
+  }
 
+  onclick4()
+  {this.arrayData = this.sharedService.arrayData;
+    console.log(this.arrayData);
+    // console.log(this.arrayData);
   }
 
   // toggledisp()
@@ -152,6 +160,12 @@ export class CanvasCompComponent  implements OnInit {
       this.dropListReceiverElement = undefined;
       this.dragDropInfo = undefined;
     }
+
+
+
+
+
+
   }
 
   
