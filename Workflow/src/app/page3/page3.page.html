@@ -1,11 +1,80 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>page3</ion-title>
+    <ion-title>Set Rules</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <br>
 
+<!-- <ion-content> -->
+  Instructions to set rule: 
+      1. Give the % of discount, proceeding select the critera for discount
+<!-- </ion-content> -->
+<br>
+<br>
+
+<!-- <ion-item> -->
+  <div style="width: 400px;">
+    <input [(ngModel)]="discnt"  class="inpbox">
+    <button (click)="onOptionSelected()" class="btn btn-primary btn-sm">Enter</button>
+</div>
+<!-- </ion-item> -->
+<br>
+ 
+
+<div>
+
+<div>
+<label>District   </label>
+<div class="dropdown-content">
+<select (change)="onOptionSelected1($event)">
+  <option selected> Select an option</option>
+  <option *ngFor="let dis of dist_Set" [value]="dis">{{dis}}</option>
+</select>
+</div>
+</div>
+
+
+<div>
+  <label>Channel </label>
+  <div class="dropdown-content">
+  <select (change)="onOptionSelected2($event)">
+    <option selected> Select an option</option>
+    <option *ngFor="let dis of chan_Set" [value]="dis">{{dis}}</option>
+  </select>
+  </div>
+  </div>
+
+
+  <div>
+    <label>Season</label>
+    <div class="dropdown-content">
+    <select (change)="onOptionSelected3($event)">
+      <option selected> Select an option</option>
+      <option *ngFor="let dis of seas_Set" [value]="dis">{{dis}}</option>
+    </select>
+    </div>
+    </div>
+
+
+    <div>
+      <label>Product  </label>
+      <div class="dropdown-content">
+      <select (change)="onOptionSelected4($event)">
+        <option selected> Select an option</option>
+        <option *ngFor="let dis of prod_Set" [value]="dis">{{dis}}</option>
+      </select>
+      </div>
+      </div>
+
+</div>
+
+
+
+<br>
+<br>
+<br>
+ 
 <ion-content>
   <ion-button (click)="onclick()">Press Me</ion-button>
   <br>

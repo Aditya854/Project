@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Serv1Service {
-  arrayData!: any[];
+  // arrayData!: any[];
+  myMap: Map<number, object> = new Map<number, object>();
   constructor() { }
 
 

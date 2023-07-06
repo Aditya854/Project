@@ -26,7 +26,9 @@ export class CanvasCompComponent  implements OnInit {
     dragIndex: number;
     dropIndex: number;
   };
-  arrayData!: any[];
+  // arrayData!: any[];
+  mapData: Map<number, object> = new Map<number, object>();
+  ruleArr: number[]=[];
 
   myArray:number[]=[];
   val1=true;
@@ -38,67 +40,29 @@ export class CanvasCompComponent  implements OnInit {
 
 
   ngOnInit():void{
-    this.arrayData = this.sharedService.arrayData;
-    console.log(this.arrayData);
+    this.mapData = this.sharedService.myMap;
+    console.log(this.mapData);
   }
 
   onclick4()
-  {this.arrayData = this.sharedService.arrayData;
-    console.log(this.arrayData);
-    // console.log(this.arrayData);
+  { 
+      this.mapData = this.sharedService.myMap;
+      // console.log(this.mapData);
+      // console.log(this.arrayData);
+      this.mapData.forEach((value: object, key: number) => {
+        // console.log(key, value);
+        this.ruleArr.push(key);
+      });
+      console.log(this.ruleArr);
   }
 
-  // toggledisp()
-  // {
-  //   this.isShowDiv=!this.isShowDiv;
-  //   console.log("hie");
-  // }
-
-    // func1()
-    // {
-    //   // console.log(this.val1);
-    //   this.val1=false;
-    //   // console.log(this.val1);
-    // }
-
-    // func2()
-    // {
-    //   // console.log(this.val2);
-    //   this.val2=false;
-    //   // console.log(this.val2);
-    // }
-
-    // func3()
-    // {
-    //   // console.log(this.val3);
-    //   this.val3=false;
-    //   // console.log(this.val3);
-    //   console.log(this.myArray);
-    // }
 
     onOptionSelected(event: Event) {
       const value = (event.target as HTMLSelectElement).value;
       console.log(typeof(value));
-      if(this.items.length<3)
-      {
         this.items.push(parseInt(value));
-      }
+      
     }
-    //   if(value=="1")
-    //   {
-    //     this.func1();
-    //   }
-    //   else if(value=="2")
-    //   {
-    //     this.func2();
-    //   }
-    //   else{
-    //     this.func3();
-    //   }
-    // }
-  
-
-
 
     add() {
       this.items.push(this.items.length + 1);
