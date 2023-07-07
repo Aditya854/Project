@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Serv1Service } from '../services/serv1.service';
 import { myData } from '../data';
-import { MyObject } from '../services/serv2';
 
 @Component({
   selector: 'app-page3',
@@ -16,10 +15,10 @@ export class Page3Page implements OnInit {
   // myMap: Map<number, object> = new Map<number, object>();
   myobj = {
     discount: 0,
-    district : " ",
-    channel: " ",
-    season: " ",
-    product: " ", 
+    district : "",
+    channel: "",
+    season: "",
+    product: "", 
   }
   discnt!:number;
   dist_Set: Set<string> = new Set<string>();
@@ -111,6 +110,22 @@ export class Page3Page implements OnInit {
 
     //reset the inputs
     this.discnt=0;
+    this.myobj = {
+      discount: 0,
+      district : "",
+      channel: "",
+      season: "",
+      product: "", 
+    }
+  }
+
+  onclick2()
+  {
+    const mapArray = Array.from(this.myserv1.myMap.entries());
+    // this.storage.set('mapData',JSON.stringify(mapArray));
+    console.log("hello");
+
+    localStorage.setItem('mapData',JSON.stringify(mapArray));
   }
 
 }

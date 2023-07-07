@@ -29,6 +29,7 @@ export class CanvasCompComponent  implements OnInit {
   // arrayData!: any[];
   mapData: Map<number, object> = new Map<number, object>();
   ruleArr: number[]=[];
+  objArr: any[]=[];
 
   myArray:number[]=[];
   val1=true;
@@ -46,14 +47,26 @@ export class CanvasCompComponent  implements OnInit {
 
   onclick4()
   { 
-      this.mapData = this.sharedService.myMap;
-      // console.log(this.mapData);
-      // console.log(this.arrayData);
+      // this.mapData = this.sharedService.myMap;
+      
+      // this.mapData.forEach((value: object, key: number) => {
+      //   this.objArr.push(value);
+      //   this.ruleArr.push(key);
+      // });
+      // console.log(this.ruleArr);
+      // console.log(this.objArr);
+
+      // var str = localStorage.getItem('mapData');
+      const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
+      this.mapData = new Map<number,object>(mapArray);
+       
       this.mapData.forEach((value: object, key: number) => {
-        // console.log(key, value);
+        this.objArr.push(value);
         this.ruleArr.push(key);
       });
       console.log(this.ruleArr);
+      console.log(this.objArr);
+
   }
 
 
@@ -61,7 +74,6 @@ export class CanvasCompComponent  implements OnInit {
       const value = (event.target as HTMLSelectElement).value;
       console.log(typeof(value));
         this.items.push(parseInt(value));
-      
     }
 
     add() {

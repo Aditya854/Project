@@ -1,7 +1,5 @@
-<div style="background-color: rgb(204, 234, 234); height: 100%;">
-<!-- <h5 style="text-align: center; padding-top: 10px; ">canvas</h5>
-<button (click)="toggledisp()">toggle disp</button>
-<div> -->
+<div style="background-color: rgb(204, 234, 234); height: 100%;" class="papadiv">
+
 <br>
 <select (change)="onOptionSelected($event)">
   <option selected> Select an option</option>
@@ -9,16 +7,7 @@
   </select>
 <br>
 
-<!-- <canvas  #canvas style="border: 1px solid; background-color: rgb(204, 234, 234); width: 1300px; height: 500;">
-    <div >
-    <div [hidden]="val1" class="example-box" cdkDrag> Rule X</div>
-    <div [hidden]="val2" class="example-box" cdkDrag> Rule M</div>
-    <div [hidden]="val3" class="example-box" cdkDrag> Rule N</div>
-    </div>
-</canvas> 
-</div> -->
 
-<!-- <button (click)="add()">Add</button>  -->
 <br />
   <ul class="example-list">
     <li *ngFor="let item of items">{{ item }}</li>
@@ -42,5 +31,7 @@
       </div>
     </div>
   </div>
+  <div  class="refbutton">
+    <ion-button (click)="onclick4()">Refresh</ion-button>
+  </div>
 </div>
-<ion-button (click)="onclick4()">Check</ion-button>
