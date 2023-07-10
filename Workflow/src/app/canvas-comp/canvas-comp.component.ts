@@ -19,7 +19,7 @@ import {
 export class CanvasCompComponent  implements OnInit {
   @ViewChild('dropListContainer') dropListContainer?: ElementRef;
 
-  public items: Array<number> = [];
+  // public items: Array<number> = [];
 
   dropListReceiverElement?: HTMLElement;
   dragDropInfo?: {
@@ -38,7 +38,7 @@ export class CanvasCompComponent  implements OnInit {
   isShowDiv = true;
   @ViewChild('canvas',{static:true}) myCanvas!:ElementRef;
   constructor(private sharedService: Serv1Service) { }
-
+  items = this.sharedService.seritems;
 
   ngOnInit():void{
     this.mapData = this.sharedService.myMap;
@@ -67,6 +67,11 @@ export class CanvasCompComponent  implements OnInit {
       console.log(this.ruleArr);
       console.log(this.objArr);
 
+  }
+
+  onclick5()
+  {
+    console.log(this.items);
   }
 
 
@@ -136,9 +141,6 @@ export class CanvasCompComponent  implements OnInit {
       this.dropListReceiverElement = undefined;
       this.dragDropInfo = undefined;
     }
-
-
-
 
 
 

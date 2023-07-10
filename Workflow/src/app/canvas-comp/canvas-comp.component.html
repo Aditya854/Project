@@ -11,6 +11,7 @@
 <br />
   <ul class="example-list">
     <li *ngFor="let item of items">{{ item }}</li>
+    <!-- <p>hi</p> -->
   </ul>
   
   <div #dropListContainer class="example-container" cdkDropListGroup>
@@ -33,5 +34,6 @@
   </div>
   <div  class="refbutton">
     <ion-button (click)="onclick4()">Refresh</ion-button>
+    <ion-button (click)="onclick5()">print itemp</ion-button>
   </div>
 </div>

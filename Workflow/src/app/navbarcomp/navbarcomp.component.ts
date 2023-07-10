@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Serv1Service } from '../services/serv1.service';
 @Component({
   selector: 'app-navbarcomp',
   templateUrl: './navbarcomp.component.html',
@@ -10,6 +11,7 @@ export class NavbarcompComponent  implements OnInit {
   // {
   //    console.log(value);
   // }
+  
 
   @Input() val1=true;
   @Input() val2=true;
@@ -19,17 +21,17 @@ export class NavbarcompComponent  implements OnInit {
   //  selectedRule!:string;
    selectedValue!: string;
    selectedRule!:string;
+   mapData: Map<number, object> = new Map<number, object>();
+  //  public dataField: Object = {text:'Rule', value:'Id'};
 
-   public dataField: Object = {text:'Rule', value:'Id'};
+  //  public ruledata :Object[] = [
+  //    {Id: 1, Rule: 'X'},
+  //    {Id: 2, Rule: 'N'},
+  //    {Id: 3, Rule: 'M'}
+  //  ];
 
-   public ruledata :Object[] = [
-     {Id: 1, Rule: 'X'},
-     {Id: 2, Rule: 'N'},
-     {Id: 3, Rule: 'M'}
-   ];
-
-  constructor() { }
-
+  constructor(private myserv1:Serv1Service) { }
+  items = this.myserv1.seritems;
   ngOnInit() {}
 
   onInpch()
@@ -45,12 +47,33 @@ export class NavbarcompComponent  implements OnInit {
   onclick3()
   {
     console.log('Save');
+    // console.log(this.items);
   }
   
 
   onclick4()
   {
     console.log('Execute');
+    console.log(this.myserv1.myMap);
+
+    const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
+    this.mapData = new Map<number,object>(mapArray);
+        console.log(this.mapData);
+
+    // for(const [key,value] of this.mapData){
+    //     const a = Number((value as any).discount);
+    //     this.Input = this.Input - ((a*0.01)*this.Input);
+    // }
+    // console.log(this.Input);
+
+    //  this.items.forEach((item:number)=>{
+    //      const temp = map.get(item);
+    //      const a = Number((temp as any).discount);
+    //      this.Input = this.Input - ((a*0.01)*this.Input);
+    //  });
+
+    //  console.log(this.Input);
+
   }
 
   // func1(){

@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class Serv1Service {
   // arrayData!: any[];
   myMap: Map<number, object> = new Map<number, object>();
+  seritems: Array<number> = [];
   constructor() { }
 
 
