@@ -7,11 +7,6 @@ import { Serv1Service } from '../services/serv1.service';
   styleUrls: ['./navbarcomp.component.scss'],
 })
 export class NavbarcompComponent  implements OnInit {
-  // onclick(value : string)
-  // {
-  //    console.log(value);
-  // }
-  
 
   @Input() val1=true;
   @Input() val2=true;
@@ -22,13 +17,6 @@ export class NavbarcompComponent  implements OnInit {
    selectedValue!: string;
    selectedRule!:string;
    mapData: Map<number, object> = new Map<number, object>();
-  //  public dataField: Object = {text:'Rule', value:'Id'};
-
-  //  public ruledata :Object[] = [
-  //    {Id: 1, Rule: 'X'},
-  //    {Id: 2, Rule: 'N'},
-  //    {Id: 3, Rule: 'M'}
-  //  ];
 
   constructor(private myserv1:Serv1Service) { }
   items = this.myserv1.seritems;
@@ -58,47 +46,21 @@ export class NavbarcompComponent  implements OnInit {
 
     const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
     this.mapData = new Map<number,object>(mapArray);
-        console.log(this.mapData);
+        // console.log(this.mapData);
 
-    // for(const [key,value] of this.mapData){
-    //     const a = Number((value as any).discount);
-    //     this.Input = this.Input - ((a*0.01)*this.Input);
-    // }
-    // console.log(this.Input);
+     this.items.forEach((item:number)=>{
+         const temp = this.mapData.get(item);
+         const a = Number((temp as any).discount);
+         this.Input = this.Input - ((a*0.01)*this.Input);
+     });
 
-    //  this.items.forEach((item:number)=>{
-    //      const temp = map.get(item);
-    //      const a = Number((temp as any).discount);
-    //      this.Input = this.Input - ((a*0.01)*this.Input);
-    //  });
-
-    //  console.log(this.Input);
-
+     console.log(this.Input);
+     this.Input=0;
   }
-
-  // func1(){
-  //   console.log(this.val1);
-  //    this.val1=!this.val1;
-  //    console.log(this.val1);
-  // }
-
-  // func2(){
-  //   console.log(this.val2);
-  //   this.val2=!this.val2;
-  //   console.log(this.val2);
-  // }
-
-  // func3(){
-  //   console.log(this.val3);
-  //   this.val3=!this.val3;
-  //   console.log(this.val3);
-  // }
 
   onOptionSelected(event: Event) {
     const value = (event.target as HTMLSelectElement).value;
     console.log(value);
   }
-
-  
 
 }
