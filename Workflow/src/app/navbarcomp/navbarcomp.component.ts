@@ -41,8 +41,8 @@ export class NavbarcompComponent  implements OnInit {
 
   onclick4()
   {
-    console.log('Execute');
-    console.log(this.myserv1.myMap);
+    // console.log('Execute');
+    // console.log(this.myserv1.myMap);
 
     const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
     this.mapData = new Map<number,object>(mapArray);
@@ -51,11 +51,19 @@ export class NavbarcompComponent  implements OnInit {
      this.items.forEach((item:number)=>{
          const temp = this.mapData.get(item);
          const a = Number((temp as any).discount);
-         this.Input = this.Input - ((a*0.01)*this.Input);
+         const type = Number((temp as any).discount_type);
+         if(type==1)
+         {
+          this.Input = this.Input - ((a*0.01)*this.Input);
+         }
+         else if(type==2)
+         {
+          this.Input = this.Input - a;
+         }
      });
 
      console.log(this.Input);
-     this.Input=0;
+    //  this.Input=0;
   }
 
   onOptionSelected(event: Event) {

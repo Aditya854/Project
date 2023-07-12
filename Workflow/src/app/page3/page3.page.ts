@@ -15,6 +15,7 @@ export class Page3Page implements OnInit {
   // myMap: Map<number, object> = new Map<number, object>();
   myobj = {
     discount: 0,
+    discount_type : 0,
     district : "",
     channel: "",
     season: "",
@@ -99,6 +100,14 @@ export class Page3Page implements OnInit {
     console.log(this.myobj.product);
   }
 
+  onOptionSelected5(event: Event) {
+    const value = (event.target as HTMLSelectElement).value;
+    // console.log(value);
+    this.myobj.discount_type= value as unknown as number;
+    console.log(this.myobj.discount_type);
+    // console.log(this.myobj.product);
+  }
+
   onclick() {
     // this.myserv1.arrayData = ['Item 1', 'Item 2', 'Item 3','Item 4'];
     // console.log(this.myserv1.arrayData);
@@ -112,6 +121,7 @@ export class Page3Page implements OnInit {
     this.discnt=0;
     this.myobj = {
       discount: 0,
+      discount_type : 0,
       district : "",
       channel: "",
       season: "",
@@ -126,6 +136,11 @@ export class Page3Page implements OnInit {
     console.log("hello");
 
     localStorage.setItem('mapData',JSON.stringify(mapArray));
+  }
+
+  onclick3()
+  {
+    
   }
 
 }

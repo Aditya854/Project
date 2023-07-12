@@ -77,7 +77,7 @@ export class CanvasCompComponent  implements OnInit {
 
     onOptionSelected(event: Event) {
       const value = (event.target as HTMLSelectElement).value;
-      console.log(typeof(value));
+      // console.log(typeof(value));
         this.items.push(parseInt(value));
     }
 

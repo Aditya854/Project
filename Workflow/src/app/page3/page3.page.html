@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<div style="background-color: rgb(204, 234, 234); height: 100%;">
+<div style="background-color: rgb(204, 234, 234); min-height: 100%;">
   <br>
 
   <!-- <ion-content> -->
@@ -16,6 +16,16 @@
   <br>
   <br>
 
+  <div class="ind_dd">
+    <label>Discount Type</label>
+      <div class="dropdown-content">
+        <select (change)="onOptionSelected5($event)">
+          <option selected> Select an option</option>
+          <option  [value]="1">Percentage</option>
+          <option  [value]="2">value</option>
+        </select>
+      </div>
+    </div>
   <!-- <ion-item> -->
     <div style="display: flex;">
     <div style="padding-left: 10px; padding-right: 10px;">
@@ -83,8 +93,9 @@
   <div class="bb">
   <ion-button (click)="onclick()">Add Rule</ion-button>
   <ion-button (click)="onclick2()">Add to LS</ion-button>
+  <ion-button (click)="onclick3()" [routerLink]="['/page4']">view rules</ion-button>
   <br>
-  <ion-button [routerLink]="['/page2']" >back to page 2</ion-button>
+  <ion-button [routerLink]="['/page2']" >back to workflow</ion-button>
   </div>
 
 

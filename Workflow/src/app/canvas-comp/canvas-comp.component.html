@@ -1,4 +1,4 @@
-<div style="background-color: rgb(204, 234, 234); height: 100%;" class="papadiv">
+<div style="background-color: rgb(204, 234, 234); min-height: 100%;" >
 
 <br>
 <select (change)="onOptionSelected($event)">
@@ -9,11 +9,10 @@
 
 
 <br />
-  <ul class="example-list">
+  <!-- <ul class="example-list">
     <li *ngFor="let item of items">{{ item }}</li>
-    <!-- <p>hi</p> -->
-  </ul>
-  
+  </ul> -->
+<div class="outerbox">
   <div #dropListContainer class="example-container" cdkDropListGroup>
     <div
       *ngFor="let item of items; let i = index"
@@ -32,8 +31,12 @@
       </div>
     </div>
   </div>
-  <div  class="refbutton">
-    <ion-button (click)="onclick4()">Refresh</ion-button>
-    <ion-button (click)="onclick5()">print itemp</ion-button>
-  </div>
+</div>
+
+
+  
+</div>
+<div  style="background-color: rgb(204, 234, 234);"class="refbutton">
+  <ion-button (click)="onclick4()">Refresh</ion-button>
+  <ion-button (click)="onclick5()">print itemp</ion-button>
 </div>
