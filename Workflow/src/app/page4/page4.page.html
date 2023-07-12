@@ -6,10 +6,31 @@
 
 <div style="background-color: rgb(204, 234, 234); min-height: 100%;">
   <!-- <div ng-controller="GridController as gridCtrl"> -->
-    <tr *ngFor="let hero of objArr">
+    <!-- <tr *ngFor="let hero of objArr">
       <td>{{hero.discount}}</td>
-  </tr>
+  </tr> -->
+  <div class="mtable">
+        <table class="hie1">
+          <thead>
+              <tr>
+                  <th>DISCOUNT</th>
+                  <th>CHANNEL</th>
+                  <th>DISTRICT</th>
+                  <th>PRODUCT</th>
+                  <th>SEASON</th>
+              </tr>
+          </thead>
+          <tr *ngFor="let hero of objArr">
+            <td>{{hero.discount==""?"None":hero.discount}}</td>
+            <td>{{ hero.channel==""?"None":hero.channel}}</td>
+            <td>{{hero.district==""?"None":hero.district}}</td>
+            <td>{{hero.product==""?"None":hero.product}}</td>
+            <td>{{hero.season==""?"None":hero.season}}</td> 
+          </tr>
+      </table>
+
   </div>
+</div>
  
 
 
