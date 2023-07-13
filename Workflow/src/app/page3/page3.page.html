@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <div class="myclass">
     <ion-title>SET RULES</ion-title>
+    <ion-button color="secondary" [routerLink]="['/page2']">Back to workflow</ion-button>
+  </div>
   </ion-toolbar>
 </ion-header>
 
@@ -92,10 +95,9 @@
  
   <div class="bb">
   <ion-button (click)="onclick()">Add Rule</ion-button>
+  <ion-button (click)="update()">Update</ion-button>
   <ion-button (click)="onclick2()">Add to LS</ion-button>
   <ion-button (click)="onclick3()" [routerLink]="['/page4']">view rules</ion-button>
-  <br>
-  <ion-button [routerLink]="['/page2']" >back to workflow</ion-button>
   </div>
 
 

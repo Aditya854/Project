@@ -7,6 +7,7 @@ export class Serv1Service {
   // arrayData!: any[];
   myMap: Map<number, object> = new Map<number, object>();
   seritems: Array<number> = [];
+  editIndex:number=0;
   constructor() { }
 
 

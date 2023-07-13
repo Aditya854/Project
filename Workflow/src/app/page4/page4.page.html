@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
+    <div class="mydiv">
     <ion-title>YOUR RULES</ion-title>
+    <ion-button color="secondary" [routerLink]="['/page2']">workflow</ion-button>
+  </div>
   </ion-toolbar>
 </ion-header>
 
@@ -13,19 +16,24 @@
         <table class="hie1">
           <thead>
               <tr>
+                <th>DISCOUNT TYPE</th>
                   <th>DISCOUNT</th>
                   <th>CHANNEL</th>
                   <th>DISTRICT</th>
                   <th>PRODUCT</th>
                   <th>SEASON</th>
+                  <th>ACTION</th>
               </tr>
           </thead>
-          <tr *ngFor="let hero of objArr">
+          <tr *ngFor="let hero of objArr; index as i">
+            <td>{{hero.discount_type==1?"Percentage":"Vale"}}</td>
             <td>{{hero.discount==""?"None":hero.discount}}</td>
             <td>{{ hero.channel==""?"None":hero.channel}}</td>
             <td>{{hero.district==""?"None":hero.district}}</td>
             <td>{{hero.product==""?"None":hero.product}}</td>
             <td>{{hero.season==""?"None":hero.season}}</td> 
+            <td> <button class='btn btn-danger' (click)="deleteRow(hero.id)">Delete</button> </td> 
+            <td> <button class='btn btn-danger' (click)="editRow(hero.id)">Edit</button> </td> 
           </tr>
       </table>
 
