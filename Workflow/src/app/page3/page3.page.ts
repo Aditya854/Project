@@ -23,6 +23,7 @@ export class Page3Page implements OnInit {
     channel: "",
     season: "",
     product: "", 
+    
   }
   discnt!:number;
   dist_Set: Set<string> = new Set<string>();

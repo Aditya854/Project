@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="pardiv">
+    <ion-title>REVIEW & DOWNLOAD</ion-title>
+    <ion-button color="secondary" [routerLink]="['/page2']">workflow</ion-button>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<div style="background-color: rgb(204, 234, 234); min-height: 100%;">
+  <!-- <div ng-controller="GridController as gridCtrl"> -->
+    <!-- <tr *ngFor="let hero of objArr">
+      <td>{{hero.discount}}</td>
+  </tr> -->
+  <div class="mtable">
+        <table class="hie1">
+          <thead>
+              <tr>
+                <th>DISCOUNT TYPE</th>
+                  <th>DISCOUNT</th>
+                  <th>CHANNEL</th>
+                  <th>DISTRICT</th>
+                  <th>PRODUCT</th>
+                  <th>SEASON</th>
+              </tr>
+          </thead>
+          <tr *ngFor="let hero of objArr; index as i">
+            <td>{{hero.discount_type==1?"Percentage":"Vale"}}</td>
+            <td>{{hero.discount==""?"None":hero.discount}}</td>
+            <td>{{ hero.channel==""?"None":hero.channel}}</td>
+            <td>{{hero.district==""?"None":hero.district}}</td>
+            <td>{{hero.product==""?"None":hero.product}}</td>
+            <td>{{hero.season==""?"None":hero.season}}</td> 
+          </tr>
+      </table>
+
+  </div>
+
+  <ion-button color="secondary" (click)="exportToCSV()">Export to CSV</ion-button>
+  <!-- <ion-button color="secondary" (click)="check()">check</ion-button> -->
+</div>

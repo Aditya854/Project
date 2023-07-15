@@ -34,17 +34,17 @@ export class Page4Page implements OnInit {
       this.objArr.push(value);
       this.ruleArr.push(key);
     });
-    console.log(this.mapData);
-    console.log(this.ruleArr);
-    console.log(this.objArr);
+    // console.log(this.mapData);
+    // console.log(this.ruleArr);
+    // console.log(this.objArr);
   }
 
   deleteRow(value: any)
   {
-    console.log(value);
+    // console.log(value);
     this.mapData.delete(value);
-    console.log(this.mapData);
-    console.log(this.objArr);
+    // console.log(this.mapData);
+    // console.log(this.objArr);
     const mapArray = Array.from(this.mapData.entries());
     localStorage.setItem('mapData',JSON.stringify(mapArray));
     window.location.reload();

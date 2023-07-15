@@ -4,6 +4,7 @@ import { Page2Component } from './page2/page2.component';
 import { Page3Page } from './page3/page3.page';
 import { Page4Page } from './page4/page4.page';
 import { Page4PageModule } from './page4/page4.module';
+import { Page5Page } from './page5/page5.page';
 
 const routes: Routes = [
   {
@@ -27,6 +28,11 @@ const routes: Routes = [
     path: 'page4',
     component: Page4Page,
     loadChildren: () => import('./page4/page4.module').then( m => m.Page4PageModule)
+  },
+  {
+    path: 'page5',
+    component: Page5Page,
+    loadChildren: () => import('./page5/page5.module').then( m => m.Page5PageModule)
   }
 ];
 

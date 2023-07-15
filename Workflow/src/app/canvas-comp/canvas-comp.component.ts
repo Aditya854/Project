@@ -19,8 +19,6 @@ import {
 export class CanvasCompComponent  implements OnInit {
   @ViewChild('dropListContainer') dropListContainer?: ElementRef;
 
-  // public items: Array<number> = [];
-
   dropListReceiverElement?: HTMLElement;
   dragDropInfo?: {
     dragIndex: number;
@@ -46,17 +44,7 @@ export class CanvasCompComponent  implements OnInit {
   }
 
   onclick4()
-  { 
-      // this.mapData = this.sharedService.myMap;
-      
-      // this.mapData.forEach((value: object, key: number) => {
-      //   this.objArr.push(value);
-      //   this.ruleArr.push(key);
-      // });
-      // console.log(this.ruleArr);
-      // console.log(this.objArr);
-
-      // var str = localStorage.getItem('mapData');
+  {
       const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
       this.mapData = new Map<number,object>(mapArray);
        
@@ -72,6 +60,9 @@ export class CanvasCompComponent  implements OnInit {
   onclick5()
   {
     console.log(this.items);
+    // this.sharedService.seritems = this.items;
+    // const serArray = this.items;
+    // localStorage.setItem('serData',JSON.stringify(serArray));
   }
 
 
