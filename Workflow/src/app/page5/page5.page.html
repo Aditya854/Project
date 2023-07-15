@@ -16,26 +16,31 @@
         <table class="hie1">
           <thead>
               <tr>
+                <th>RULE NO</th>
                 <th>DISCOUNT TYPE</th>
                   <th>DISCOUNT</th>
                   <th>CHANNEL</th>
                   <th>DISTRICT</th>
                   <th>PRODUCT</th>
                   <th>SEASON</th>
+                  <th>PRICE = ({{this.initialprice}})</th>
               </tr>
           </thead>
-          <tr *ngFor="let hero of objArr; index as i">
+          <tr *ngFor="let hero of newobjArr; index as i">
+            <td>{{hero.ruleno}}</td>
             <td>{{hero.discount_type==1?"Percentage":"Vale"}}</td>
             <td>{{hero.discount==""?"None":hero.discount}}</td>
             <td>{{ hero.channel==""?"None":hero.channel}}</td>
             <td>{{hero.district==""?"None":hero.district}}</td>
             <td>{{hero.product==""?"None":hero.product}}</td>
             <td>{{hero.season==""?"None":hero.season}}</td> 
+            <td>{{hero.price}}</td> 
           </tr>
       </table>
 
   </div>
 
+  <br>
   <ion-button color="secondary" (click)="exportToCSV()">Export to CSV</ion-button>
-  <!-- <ion-button color="secondary" (click)="check()">check</ion-button> -->
+  <!-- <ion-button color="secondary" (click)="temporary()">check</ion-button> -->
 </div>

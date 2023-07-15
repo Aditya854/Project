@@ -17,6 +17,24 @@ export class Page5Page implements OnInit {
   constructor(private service:Serv1Service) { }
   item = this.service.seritems;
 
+  //variables for table-formation
+  myobj = {
+    ruleno:0,
+    id:0,
+    discount: 0,
+    discount_type : 0,
+    district : "",
+    channel: "",
+    season: "",
+    product: "", 
+    price:0
+  }
+
+  newobjArr:any[]=[];
+  tempobj:any;
+  var=1;
+  initialprice=0;
+
   ngOnInit() {
     const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
     this.mapData = new Map<number,object>(mapArray);
@@ -31,12 +49,12 @@ export class Page5Page implements OnInit {
       const inpch_array = JSON.parse(localStorage.getItem('inpch_Data') || '{}');
       this.inpch_arr = inpch_array;
       console.log(this.inpch_arr);
-
-
+      this.initialprice=this.inpch_arr[0];
+      this.temporary();
   }
 
   exportToCSV() {
-    const csvData = this.convertToCSV(this.objArr);
+    const csvData = this.convertToCSV(this.newobjArr);
     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8' });
     saveAs(blob, 'tableData.csv');
   }
@@ -61,9 +79,36 @@ export class Page5Page implements OnInit {
     return csvRows.join('\n');
   }
 
-  check()
-  {
-    console.log(this.service.inpch_array);
+  temporary(){
+     for( const key of this.ruleArr)
+     {
+      const item = this.mapData.get(key);
+      // console.log(key);
+      this.myobj.ruleno = key;
+      this.myobj.discount_type = Number((item as any).discount_type);
+      this.myobj.discount = Number((item as any).discount);
+      this.myobj.district = String((item as any).district);
+      this.myobj.channel = String((item as any).channel);
+      this.myobj.product = String((item as any).product);
+      this.myobj.season = String((item as any).season);
+      this.myobj.price = this.inpch_arr[this.var];
+      this.var = this.var+1;
+      const temp = this.myobj;
+      this.newobjArr.push(temp);
+      // break;
+      this.myobj={
+        ruleno:0,
+        id:0,
+        discount: 0,
+        discount_type : 0,
+        district : "",
+        channel: "",
+        season: "",
+        product: "", 
+        price:0
+      }
+     }
+     console.log(this.newobjArr);
   }
 
 }

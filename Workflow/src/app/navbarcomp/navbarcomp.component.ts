@@ -73,11 +73,11 @@ export class NavbarcompComponent  implements OnInit {
 
     const a = this.Input as unknown as string;
     const alert = await this.alertcontroller.create({
-      header: 'Alert',
+      header: 'Workflow Executed',
       message: 'Output is '+ a,
       buttons: [
         {
-          text: 'Redirect',
+          text: 'Download',
           handler: () => {
             // Handle the redirect action here
             // Replace 'destination' with the URL of the page you want to redirect to
