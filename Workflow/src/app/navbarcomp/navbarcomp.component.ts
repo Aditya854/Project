@@ -2,6 +2,10 @@ import { Component, OnInit,Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Serv1Service } from '../services/serv1.service';
 import { AlertController } from '@ionic/angular';
+import { Firestore,addDoc,collection,collectionData } from '@angular/fire/firestore';
+// import { error } from 'console';
+
+// import {app} from '../firebaseconfig';
 @Component({
   selector: 'app-navbarcomp',
   templateUrl: './navbarcomp.component.html',
@@ -12,20 +16,26 @@ export class NavbarcompComponent  implements OnInit {
   @Input() val1=true;
   @Input() val2=true;
   @Input() val3=true;
-   userInput!: string;
+   userInput:string="";
    Input!:number;
   //  selectedRule!:string;
    selectedValue!: string;
    selectedRule!:string;
    mapData: Map<number, object> = new Map<number, object>();
+   final_mapData!: Map<number, object>;
+   final_ruleArr: any;
+   final_inpch_arr: any;
+   final_username:any;
 
-  constructor(private myserv1:Serv1Service, private alertcontroller:AlertController) { }
+  constructor(private myserv1:Serv1Service, private alertcontroller:AlertController, private firestore:Firestore) { }
   items = this.myserv1.seritems;
   ngOnInit() {}
 
   onInpch()
   {
     console.log(this.userInput);
+    this.final_username=this.userInput;
+    localStorage.setItem('Username',JSON.stringify(this.final_username));
   }
 
   onInpch2()
@@ -36,6 +46,66 @@ export class NavbarcompComponent  implements OnInit {
   onclick3()
   {
     console.log('Save');
+
+    //getting everything from the local storage which needs to be put to the database
+
+    const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
+    this.final_mapData = new Map<number,object>(mapArray);
+
+    const serArray = JSON.parse(localStorage.getItem('serData') || '{}');
+    this.final_ruleArr = serArray;
+
+    const inpch_array = JSON.parse(localStorage.getItem('inpch_Data') || '{}');
+    this.final_inpch_arr = inpch_array;
+
+    const username = JSON.parse(localStorage.getItem('Username') || '{}');
+    this.final_username = username;
+
+    console.log(this.final_mapData);
+    console.log(this.final_inpch_arr);
+    console.log(this.final_ruleArr);
+    console.log(this.final_username);
+    
+
+    //   CODE FOR FIREBASE INTEGRATION
+    const collectionInstance = collection(this.firestore,'users');
+    const mapObject: { [key: number]: object } = {};
+    this.final_mapData.forEach((value, key) => {
+      mapObject[key] = value;
+    });
+
+    console.log(typeof(mapObject));
+    console.log(typeof(this.userInput));
+    const data={
+      name:this.final_username as unknown as string,
+      array1:this.final_inpch_arr,
+      array2:this.final_ruleArr,
+      mapdata:mapObject
+    }
+    addDoc(collectionInstance,(data))
+    .then(()=>{
+      console.log('Data saved succesfully');
+    })
+    .catch(()=>{
+      console.log('error');
+    })
+
+
+
+    //   CODE FOR FIREBASE ENDS HERE
+  }
+
+
+
+
+
+
+  inpch_arr(inpch_arr: any) {
+    throw new Error('Method not implemented.');
+  }
+
+  ruleArr(ruleArr: any) {
+    throw new Error('Method not implemented.');
   }
   
 

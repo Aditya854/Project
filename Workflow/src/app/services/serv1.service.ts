@@ -1,4 +1,12 @@
 import { Injectable } from '@angular/core';
+import { getFirestore } from '@angular/fire/firestore';
+import {AngularFireDatabase} from '@angular/fire/compat/database';
+import { 
+  Firestore,
+  addDoc,
+  collection,
+  collectionData
+} from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +17,16 @@ export class Serv1Service {
   seritems: Array<number> = [];
   inpch_array: Array<number> = [];
   editIndex:number=0;
-  constructor() { }
+  constructor(private firestore:Firestore) { }
+   
+getall(){
+  const collectionInstance = collection(this.firestore,'users');
+  collectionData(collectionInstance)
+  .subscribe(val=>{
+    console.log(val);
+    console.log(typeof(val));
+  })
+}
 
 
 }

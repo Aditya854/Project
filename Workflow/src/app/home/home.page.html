@@ -1,18 +1,27 @@
-<ion-header >
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Landing Page
-    </ion-title>
+    <div class="myclass">
+    <ion-title>Workflow Executor</ion-title>
+    <ion-button color="secondary" [routerLink]="['/page2']">New workflow</ion-button>
+  </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="container">
-  <br>
-  <p style="text-align: center;">To display the List of Workflow</p>
-  <br>
-  <br>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <ion-button class="btn btn-primary" type="button" [routerLink]="['/page2']">Button</ion-button>
-  </div>
-  
-</ion-content>
+<!-- <div style="background-color: rgb(204, 234, 234); min-height: 100%;"> -->
+    <table>
+      <thead>
+          <tr>
+            <th>SER NO.</th>
+              <th>CREATOR'S NAME</th>
+              <th>TIMESTAMP</th>
+              <th>ACTION</th>
+          </tr>
+      </thead>
+      <tr *ngFor="let hero of Listdata|async; index as i">
+        <td>{{i+1}}</td>
+        <td>{{hero.name}}</td>
+        <td>Timestamp</td>
+        <td> <button class='btn btn-danger' (click)="Redirectingfn()">Edit</button> </td> 
+      </tr>
+    </table>
+<!-- </div> -->
