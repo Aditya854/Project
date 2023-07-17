@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  // {
+  //   path: 'home',
+  //   loadChildren: () => import('./page0/page0.module').then( m => m.Page0PageModule)
+  // },
   {
     path: '',
     redirectTo: 'home',
@@ -33,7 +37,7 @@ const routes: Routes = [
     path: 'page5',
     component: Page5Page,
     loadChildren: () => import('./page5/page5.module').then( m => m.Page5PageModule)
-  }
+  },
 ];
 
 @NgModule({
