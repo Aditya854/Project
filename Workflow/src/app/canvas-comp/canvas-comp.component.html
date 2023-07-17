@@ -1,7 +1,7 @@
-<div style="background-color: rgb(204, 234, 234); min-height: 100%;" >
+<div style=" min-height: 90%;" >
 
 <br>
-<select (change)="onOptionSelected($event)">
+<select (change)="onOptionSelected($event)" style="margin-left: 15px;">
   <option selected> Select an option</option>
   <option *ngFor="let rule of ruleArr" [value]="rule" (click)="onOptionSelected($event)">Rule {{rule}}</option>
   </select>
@@ -36,7 +36,7 @@
 
   
 </div>
-<div  style="background-color: rgb(204, 234, 234);"class="refbutton">
-  <ion-button (click)="onclick4()">Refresh</ion-button>
-  <!-- <ion-button (click)="onclick5()">print itemp</ion-button> -->
+<div class="refbutton">
+  <button (click)="onclick4()" class="page2button">Refresh</button>
+  <button (click)="onclick5()" class="page2button">print itemp</button>
 </div>

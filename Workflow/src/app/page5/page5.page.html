@@ -1,13 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <div class="pardiv">
-    <ion-title>REVIEW & DOWNLOAD</ion-title>
-    <ion-button color="secondary" [routerLink]="['/page2']">workflow</ion-button>
-  </div>
-  </ion-toolbar>
-</ion-header>
+<div class="hheader">
+  <div class="myclass">
+  <ion-title style="color: aliceblue;">REVIEW & DOWNLOAD</ion-title>
+  <button  style="margin-right: 10px;" class="page5button" [routerLink]="['/page2']">Back to workflow</button>
+</div>
+</div>
 
-<div style="background-color: rgb(204, 234, 234); min-height: 100%;">
+<div style="min-height: 100%;">
   <!-- <div ng-controller="GridController as gridCtrl"> -->
     <!-- <tr *ngFor="let hero of objArr">
       <td>{{hero.discount}}</td>
@@ -41,6 +39,6 @@
   </div>
 
   <br>
-  <ion-button color="secondary" (click)="exportToCSV()">Export to CSV</ion-button>
+  <button  class="page5button2" (click)="exportToCSV()">Export to CSV</button>
   <!-- <ion-button color="secondary" (click)="temporary()">check</ion-button> -->
 </div>

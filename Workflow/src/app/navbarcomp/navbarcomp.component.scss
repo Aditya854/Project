@@ -7,3 +7,55 @@
     width: 100px;
     height: 30px
 }
+
+.page2nav{
+display: flex;
+  flex-direction: row;
+  border-radius: 7px;
+  background: #AC23F6;
+  margin: 5px 5px 5px 5px;
+  height: 45px;
+}
+
+.page2button{
+    // display: inline-flex;
+    font-size: 15px;
+    padding: 3px 10px;
+    justify-content: center;
+    align-items: center;
+    // gap: 10px;
+    color: white;
+    border-radius: 4px;
+    background: #AC23F6;
+    margin: 5px 5px;
+    border: 1px solid rgb(200, 142, 226);
+}
+
+.myclass{
+    display: flex;
+    flex-direction: row;
+    border-radius: 7px;
+    background: #AC23F6;
+    margin: 5px 5px 5px 5px;
+    height: 45px;
+}
+
+.userinputs{
+
+// width: 1361px;
+// height: 65px;
+flex-shrink: 0;
+border-radius: 7px;
+border: 1px solid #EDEDED;
+background: #FFF;
+margin-left: 10px;
+margin-right: 10px;
+margin-top: 10px;
+display: flex;
+flex-direction: row;
+}
+
+.inputbox{
+    margin: 7px 7px 7px 7px;
+}
+

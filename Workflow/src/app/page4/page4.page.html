@@ -1,13 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <div class="mydiv">
-    <ion-title>YOUR RULES</ion-title>
-    <ion-button color="secondary" [routerLink]="['/page2']">workflow</ion-button>
-  </div>
-  </ion-toolbar>
-</ion-header>
+<div class="hheader">
+  <div class="myclass">
+  <ion-title style="color: aliceblue;">SET RULES</ion-title>
+  <button  style="margin-right: 10px;" class="page4button" [routerLink]="['/page2']">Back to workflow</button>
+</div>
+</div>
 
-<div style="background-color: rgb(204, 234, 234); min-height: 100%;">
+<div style="min-height: 100%;">
   <!-- <div ng-controller="GridController as gridCtrl"> -->
     <!-- <tr *ngFor="let hero of objArr">
       <td>{{hero.discount}}</td>
@@ -32,8 +30,8 @@
             <td>{{hero.district==""?"None":hero.district}}</td>
             <td>{{hero.product==""?"None":hero.product}}</td>
             <td>{{hero.season==""?"None":hero.season}}</td> 
-            <td> <button class='btn btn-danger' (click)="deleteRow(hero.id)">Delete</button> </td> 
-            <td> <button class='btn btn-danger' (click)="editRow(hero.id)">Edit</button> </td> 
+            <td> <button class="page4button" (click)="deleteRow(hero.id)">Delete</button> </td> 
+            <td> <button class="page4button" (click)="editRow(hero.id)">Edit</button> </td> 
           </tr>
       </table>
 

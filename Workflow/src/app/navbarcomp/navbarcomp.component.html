@@ -1,34 +1,59 @@
-<ion-header>
-    <ion-toolbar>
+<!-- <div class="page2nav">
       <ion-buttons slot="start">
-         <!-- add the buttons-->
+         add the buttons
          <input [(ngModel)]="userInput"  class="inpbox">
-         <button (click)="onInpch()" class="btn btn-primary btn-sm">Enter</button>
-
-         <!-- <select (change)="onOptionSelected($event)">
-          <option value="">Select an option</option>
-          <option value="option1" >Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </select> -->
-        
+         <button (click)="onInpch()" class="page2button">Enter</button>        
       </ion-buttons>
 
 
 
       
-      <ion-title class="centered-title">
+      <ion-buttons slot="middle">
         <input [(ngModel)]="Input"  class="inpbox">
-         <button (click)="onInpch2()" class="btn btn-primary btn-sm">Enter</button>
-      </ion-title>
-      <ion-buttons slot="end">
-        <ion-button color="secondary" [routerLink]="['/page3']">Set Rules</ion-button>
-        <!-- add the buttons-->
-        <button type="button" class="btn btn-outline-success" (click)="onclick3()">Save</button>
+         <button (click)="onInpch2()" class="page2button">Enter</button>
+      </ion-buttons>
 
-        <button type="button" class="btn btn-warning" (click)="onclick4()">Execute</button>
+
+
+      
+      <ion-buttons slot="end">
+        <button class="page2button" [routerLink]="['/page3']">Set Rules</button>
+        add the buttons
+        <button type="button" class="page2button" (click)="onclick3()">Save</button>
+
+        <button type="button" class="page2button" (click)="onclick4()">Execute</button>
 
      </ion-buttons>
-    </ion-toolbar>
-</ion-header>
 
+</div> -->
+
+
+<div class="hheader">
+  <div class="myclass">
+  <ion-title style="color: aliceblue;">Workflow Creation</ion-title>
+  <button class="page2button" [routerLink]="['/page3']">Set Rules</button>
+  <!-- add the buttons -->
+  <button type="button" class="page2button" (click)="onclick3()">Save</button>
+
+  <button type="button" class="page2button" (click)="onclick4()">Execute</button>
+</div>
+</div>
+
+
+
+
+<div class="userinputs">
+  <!-- hello -->
+    <div class="inputbox">
+      Workflow Name
+    <input [(ngModel)]="userInput"  class="inpbox">
+        <button (click)="onInpch()" class="page2button">Enter</button>
+    </div>
+
+    <div class="inputbox">
+      Input value
+    <input [(ngModel)]="Input"  class="inpbox">
+        <button (click)="onInpch2()" class="page2button">Enter</button>
+
+    </div>
+</div>

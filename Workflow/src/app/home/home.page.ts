@@ -18,7 +18,7 @@ export class HomePage {
   data: any[] = [];
   Listdata!: Observable<any>;
   constructor(private service:Serv1Service,private firestore:Firestore) {
-    // localStorage.clear();
+    localStorage.clear();
   }
 
   ngOnInit(){

@@ -10,6 +10,7 @@
 
 .dropdowns{
     display: flex;
+    flex-direction: row;
 }
 
 .ind_dd{
@@ -24,4 +25,75 @@
 .myclass{
     display: flex;
     flex-direction: row;
+    border-radius: 7px;
+    background: #AC23F6;
+    margin: 5px 5px 5px 5px;
+}
+
+.instructionbox{
+    color: #000;
+font-family: Graphik;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.innerinsbox{
+    color: #000;
+font-family: Graphik;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding-top: 5px;
+}
+
+.ddouterbox{
+margin-left: 30px; 
+margin-right: 30px;
+border-radius: 7px;
+border: 1px solid #EDEDED;
+background: #FFF;
+// position: relative;
+}
+
+.ddtitle{
+    color: #000;
+font-family: Graphik;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.ddeachbox{
+border-radius: 3px;
+border: 1px solid #E1E1E1;
+background: #FFF;
+}
+
+// .ddrow1{
+    
+// }
+
+.page3button{
+display: inline-flex;
+font-size: 15px;
+padding: 3px 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+color: white;
+border-radius: 4px;
+background: #AC23F6;
+margin: 10px 10px;
+}
+
+.ddbuttons
+{
+    // position: absolute;
+    flex-direction: row;
+    // float: right;
+    right: 0;
 }

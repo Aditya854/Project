@@ -6,3 +6,25 @@ td {
     display: flex;
     flex-direction: row;
 }
+
+.myclass{
+    display: flex;
+    flex-direction: row;
+    border-radius: 7px;
+    background: #AC23F6;
+    margin: 5px 5px 5px 5px;
+    height: 45px;
+}
+
+.page4button{
+    // display: inline-flex;
+    font-size: 15px;
+    padding: 3px 10px;
+    justify-content: center;
+    align-items: center;
+    // gap: 10px;
+    color: white;
+    border-radius: 4px;
+    background: #AC23F6;
+    // margin: 5px 5px;
+    }

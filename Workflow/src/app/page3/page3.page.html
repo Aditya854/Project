@@ -1,51 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<!-- <ion-header> -->
+  <!-- <ion-toolbar class="hheader"> -->
+    <div class="hheader">
     <div class="myclass">
-    <ion-title>SET RULES</ion-title>
-    <ion-button color="secondary" [routerLink]="['/page2']">Back to workflow</ion-button>
+    <ion-title style="color: aliceblue;">SET RULES</ion-title>
+    <button  style="margin-right: 10px;" class="page3button" [routerLink]="['/page2']">Back to workflow</button>
   </div>
-  </ion-toolbar>
-</ion-header>
+</div>
+  <!-- </ion-toolbar> -->
+<!-- </ion-header> -->
 
-<div style="background-color: rgb(204, 234, 234); min-height: 100%;">
+<div style="min-height: 100%;">
   <br>
 
   <!-- <ion-content> -->
-    <div style="padding-left: 10px;">
-    Instructions to set rule: 
-        1. Give the % of discount, proceeding select the critera for discount
+    <div style="margin-left: 30px;">
+    <div class="instructionbox"> 
+     Instructions to set rule: 
     </div>
+      <div class="innerinsbox">
+          1. Give the % of discount, proceeding select the critera for discount
+      </div>
+  </div>
   <!-- </ion-content> -->
   <br>
-  <br>
 
-  <div class="ind_dd">
-    <label>Discount Type</label>
-      <div class="dropdown-content">
-        <select (change)="onOptionSelected5($event)">
-          <option selected> Select an option</option>
-          <option  [value]="1">Percentage</option>
-          <option  [value]="2">value</option>
-        </select>
+ <div class="ddouterbox">
+    <div class="ind_dd">
+      <label class="ddtitle">Discount Type</label>
+        <div class="dropdown-content">
+          <select (change)="onOptionSelected5($event)"class="ddeachbox">
+            <option selected> Select an option</option>
+            <option  [value]="1">Percentage</option>
+            <option  [value]="2">value</option>
+          </select>
+        </div>
       </div>
-    </div>
-  <!-- <ion-item> -->
-    <div style="display: flex;">
-    <div style="padding-left: 10px; padding-right: 10px;">
-      <input [(ngModel)]="discnt"  class="inpbox" placeholder="Enter discount %">
-    </div>
-      <button (click)="onOptionSelected()" class="btn btn-primary btn-sm">Enter</button>
-    </div>
-  <!-- </ion-item> -->
-  <br>
+
+      <div style="display: flex;">
+        <div style="padding-left: 10px; padding-right: 10px;">
+          <input [(ngModel)]="discnt"  class="inpbox" placeholder="Enter discount %" class="ddeachbox">
+        </div>
+          <button (click)="onOptionSelected()"
+          class="page3button">Enter</button>
+        </div>
+
+   <br>
  
 
-  <div class="dropdowns">
+   <div class="dropdowns">
 
     <div class="ind_dd">
-    <label>District   </label>
+    <label class="ddtitle">District   </label>
       <div class="dropdown-content">
-        <select (change)="onOptionSelected1($event)">
+        <select (change)="onOptionSelected1($event)" class="ddeachbox">
           <option selected> Select an option</option>
           <option *ngFor="let dis of dist_Set" [value]="dis">{{dis}}</option>
         </select>
@@ -54,9 +61,10 @@
 
 
     <div class="ind_dd">
-      <label>Channel </label>
+      <label class="ddtitle">Channel </label>
         <div class="dropdown-content">
-          <select (change)="onOptionSelected2($event)">
+          <select (change)="onOptionSelected2($event)"
+          class="ddeachbox">
             <option selected> Select an option</option>
             <option *ngFor="let dis of chan_Set" [value]="dis">{{dis}}</option>
           </select>
@@ -65,9 +73,9 @@
 
 
     <div class="ind_dd">
-      <label>Season</label>
+      <label class="ddtitle">Season</label>
         <div class="dropdown-content">
-          <select (change)="onOptionSelected3($event)">
+          <select (change)="onOptionSelected3($event)"class="ddeachbox">
             <option selected> Select an option</option>
             <option *ngFor="let dis of seas_Set" [value]="dis">{{dis}}</option>
           </select>
@@ -76,28 +84,33 @@
 
 
     <div class="ind_dd">
-        <label>Product  </label>
+        <label class="ddtitle">Product  </label>
           <div class="dropdown-content">
-            <select (change)="onOptionSelected4($event)">
+            <select (change)="onOptionSelected4($event)"class="ddeachbox">
               <option selected> Select an option</option>
               <option *ngFor="let dis of prod_Set" [value]="dis">{{dis}}</option>
             </select>
           </div>
     </div>
 
+   </div>
+
+   <br>
+
+   <div class="ddbuttons">
+    <button (click)="onclick()" class="page3button">Add Rule</button>
+    <button (click)="update()" class="page3button">Update</button>
   </div>
 
-
+</div>
 
   <br>
   <br>
   <br>
  
   <div class="bb">
-  <ion-button (click)="onclick()">Add Rule</ion-button>
-  <ion-button (click)="update()">Update</ion-button>
-  <ion-button (click)="onclick2()">Add to LS</ion-button>
-  <ion-button (click)="onclick3()" [routerLink]="['/page4']">view rules</ion-button>
+  <button (click)="onclick2()" class="page3button">Add to LS</button>
+  <button (click)="onclick3()" [routerLink]="['/page4']" class="page3button">view rules</button>
   </div>
 
 
