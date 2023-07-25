@@ -61,3 +61,51 @@
 
     </div>
 </div>
+
+<div class="userinputs">
+  <!-- <div class="leftdd"> -->
+      <div class="ind_dd">
+        <label style="font-size: 13px;" class="ddtitle">Product Selection</label>
+          <div class="dropdown-content">
+            <select  class="ddeachbox" (change)="onSelect1($event)">
+              <option > Select an option</option>
+              <option *ngFor="let level of hierar1" value="{{level.id}}">{{level.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ind_dd">
+          <label style="font-size: 13px;" class="ddtitle">Select Category</label>
+            <div class="dropdown-content">
+              <select  class="ddeachbox" (change)="onSelect2($event)">
+                <option > Select an option</option>
+                <option *ngFor="let level of hierar2" value="{{level.idL2}}">{{level.name}}</option>
+              </select>
+            </div>
+          </div>
+    <!-- </div> -->
+
+
+  <!-- <div class="rightdd"> -->
+      <div class="ind_dd">
+        <label style="font-size: 13px;" class="ddtitle">Customer Selection</label>
+          <div class="dropdown-content">
+            <select  class="ddeachbox" (change)="onSelect3($event)">
+              <option > Select an option</option>
+              <option *ngFor="let level of customer_hierar1" value="{{level.id}}">{{level.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ind_dd">
+          <label style="font-size: 13px;" class="ddtitle">Select Catagory</label>
+            <div class="dropdown-content">
+              <select  class="ddeachbox" (change)="onSelect4($event)">
+                <option > Select an option</option>
+                <option *ngFor="let level of customer_hierar2" value="{{level.idL2}}">{{level.name}}</option>
+              </select>
+            </div>
+          </div>
+    <!-- </div> -->
+        <!-- <button type="button" class="page2button" (click)="onSelect5()">See Results</button> -->
+</div>

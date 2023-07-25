@@ -34,6 +34,13 @@ export class Page3Page implements OnInit {
   myArray = myData;
   editindex:number=0;
   paramsSub!: Subscription;
+
+  //changing dd 
+  discount_type=0;
+  dd_district='';
+  dd_channel='';
+  dd_season='';
+  dd_product='';
  
   constructor(private myserv1:Serv1Service,private activateRoute: ActivatedRoute,private toastr: ToastrService) { }
 
@@ -93,40 +100,42 @@ export class Page3Page implements OnInit {
     // console.log(value);
      this.myobj.discount=value;
      console.log(this.myobj.discount);
+    //  console.log(this.discount_type);
+    //  this.discount_type=0;
   }
 
-  onOptionSelected1(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
+  onOptionSelected1() {
+    // const value = (event.target as HTMLSelectElement).value;
     // console.log(value);
-     this.myobj.district=value;
+     this.myobj.district=this.dd_district;
      console.log(this.myobj.district);
   }
 
-  onOptionSelected2(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
+  onOptionSelected2() {
+    // const value = (event.target as HTMLSelectElement).value;
     // console.log(value);
-    this.myobj.channel=value;
+    this.myobj.channel=this.dd_channel;
     console.log(this.myobj.channel);
   }
 
-  onOptionSelected3(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
+  onOptionSelected3() {
+    // const value = (event.target as HTMLSelectElement).value;
     // console.log(value);
-    this.myobj.season=value;
+    this.myobj.season=this.dd_season;
     console.log(this.myobj.season);
   }
 
-  onOptionSelected4(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
+  onOptionSelected4() {
+    // const value = (event.target as HTMLSelectElement).value;
     // console.log(value);
-    this.myobj.product=value;
+    this.myobj.product=this.dd_product;
     console.log(this.myobj.product);
   }
 
-  onOptionSelected5(event: Event) {
-    const value = (event.target as HTMLSelectElement).value;
+  onOptionSelected5() {
+    // const value = (event.target as HTMLSelectElement).value;
     // console.log(value);
-    this.myobj.discount_type= value as unknown as number;
+    this.myobj.discount_type= this.discount_type;
     console.log(this.myobj.discount_type);
     // console.log(this.myobj.product);
   }
@@ -161,6 +170,14 @@ export class Page3Page implements OnInit {
       season: "",
       product: "", 
     }
+
+    
+    this.discount_type=0;
+  this.dd_district='';
+  this.dd_channel='';
+  this.dd_season='';
+  this.dd_product='';
+
   }
 
   onclick2()

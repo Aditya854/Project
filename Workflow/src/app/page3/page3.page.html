@@ -27,13 +27,14 @@
  <div class="ddouterbox">
     <div class="ind_dd">
       <label class="ddtitle">Discount Type</label>
-        <div class="dropdown-content">
-          <select (change)="onOptionSelected5($event)"class="ddeachbox">
-            <option selected> Select an option</option>
-            <option  [value]="1">Percentage</option>
-            <option  [value]="2">value</option>
-          </select>
-        </div>
+      <div class="dropdown-content">
+        <select [(ngModel)]="discount_type" 
+        (change)="onOptionSelected5()" class="ddeachbox">
+          <option default> Select an option</option>
+          <option  [value]="1">Percentage</option>
+          <option  [value]="2">value</option>
+        </select>
+      </div>
       </div>
 
       <div style="display: flex;">
@@ -52,8 +53,11 @@
     <div class="ind_dd">
     <label class="ddtitle">District   </label>
       <div class="dropdown-content">
-        <select (change)="onOptionSelected1($event)" class="ddeachbox">
-          <option selected> Select an option</option>
+        <select [(ngModel)]="dd_district"
+        (change)="onOptionSelected1()" 
+        class="ddeachbox"
+        >
+          <option default> Select an option</option>
           <option *ngFor="let dis of dist_Set" [value]="dis">{{dis}}</option>
         </select>
       </div>
@@ -63,9 +67,10 @@
     <div class="ind_dd">
       <label class="ddtitle">Channel </label>
         <div class="dropdown-content">
-          <select (change)="onOptionSelected2($event)"
+          <select [(ngModel)]="dd_channel"
+          (change)="onOptionSelected2()"
           class="ddeachbox">
-            <option selected> Select an option</option>
+            <option default> Select an option</option>
             <option *ngFor="let dis of chan_Set" [value]="dis">{{dis}}</option>
           </select>
         </div>
@@ -75,8 +80,10 @@
     <div class="ind_dd">
       <label class="ddtitle">Season</label>
         <div class="dropdown-content">
-          <select (change)="onOptionSelected3($event)"class="ddeachbox">
-            <option selected> Select an option</option>
+          <select [(ngModel)]="dd_season"
+          (change)="onOptionSelected3()"
+          class="ddeachbox">
+            <option default> Select an option</option>
             <option *ngFor="let dis of seas_Set" [value]="dis">{{dis}}</option>
           </select>
         </div>
@@ -86,7 +93,9 @@
     <div class="ind_dd">
         <label class="ddtitle">Product  </label>
           <div class="dropdown-content">
-            <select (change)="onOptionSelected4($event)"class="ddeachbox">
+            <select [(ngModel)]="dd_product"
+            (change)="onOptionSelected4()"
+            class="ddeachbox">
               <option selected> Select an option</option>
               <option *ngFor="let dis of prod_Set" [value]="dis">{{dis}}</option>
             </select>

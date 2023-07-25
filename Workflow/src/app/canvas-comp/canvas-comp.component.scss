@@ -12,7 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   // position: relative;
-  justify-content: center;
+  // justify-content: center;
   flex-direction: column;
   gap: 10px;
   // margin: 10px;
@@ -21,11 +21,11 @@
 }
 
 .example-box {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 70px;
   border: solid 1px #ccc;
-  font-size: 20pt;
-  font-weight:lighter;
+  font-size: 20px;
+  font-weight:bolder;
   color: rgba(0, 0, 0, 0.87);
   cursor: move;
   display: flex;
@@ -70,8 +70,8 @@ button {
 }
 
 .example-box-placeholder {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 70px;
   display: flex;
   justify-content: center;
   background: #ccc;

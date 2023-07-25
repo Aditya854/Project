@@ -1,0 +1,41 @@
+<div class="hheader">
+  <div class="myclass">
+  <ion-title style="color: aliceblue;">Consolidated Result</ion-title>
+  <!-- <button class="page5button" [routerLink]="['/page6']">Consolidate Result</button> -->
+  <button  style="margin-right: 10px;" class="page5button" [routerLink]="['/page5']">Back</button>
+</div>
+</div>
+
+<!-- <div> -->
+
+<ion-content>
+
+  <div class="mtable">
+        <table>
+          <thead>
+              <tr>
+                <th>SERIAL NO.</th>
+                <th>CUSTOMER </th>
+                  <th>PRODUCT</th>
+                  <th>INITIAL PRICE</th>
+                  <th>FINAL PRICE</th>
+                  
+              </tr>
+          </thead>
+          <tr *ngFor="let hero of final_matrix ; index as i ">
+            <td>{{i}}</td>
+            <td>{{hero.customer}}</td>
+            <td>{{hero.item}}</td>
+            <td>{{hero.item_i_price}}</td>
+            <td>{{hero.item_f_price}}</td>
+          </tr>
+      </table>
+
+  </div>
+
+</ion-content>
+
+
+  <!-- <button  class="page5button2" (click)="exportToCSV()">Export to CSV</button> -->
+  <!-- <ion-button color="secondary" (click)="temporary()">check</ion-button> -->
+<!-- </div> -->

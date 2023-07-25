@@ -27,10 +27,32 @@ export class NavbarcompComponent  implements OnInit {
    final_ruleArr: any;
    final_inpch_arr: any;
    final_username:any;
+   final_ddarray:any;
+
+   // dependent dropdowns variables
+   hierar1:any=[];
+   hierar2:any=[];
+   produc_arr:any=[];
+   product_selected:any=[];
+   minVal:any=[];
+   level1!:number;
+   level2!:number;
+
+   customer_hierar1:any=[];
+   customer_hierar2:any=[];
+   customer_arr:any=[];
+   customer_selected:any=[];
+   final_matrix:any=[];
+   cust_level1!:number;
+   cust_level2!:number;
 
   constructor(private myserv1:Serv1Service, private alertcontroller:AlertController, private firestore:Firestore,private toastr:ToastrService) { }
   items = this.myserv1.seritems;
-  ngOnInit() {}
+  ngOnInit() {
+    this.hierar1 = this.myserv1.hierar1();
+    //  console.log(this.hierar1);
+    this.customer_hierar1=this.myserv1.customer_hierar1();
+  }
 
   onInpch()
   {
@@ -62,10 +84,15 @@ export class NavbarcompComponent  implements OnInit {
     const username = JSON.parse(localStorage.getItem('Username') || '{}');
     this.final_username = username;
 
+    const dropdown = JSON.parse(localStorage.getItem('dropdown_table') || '{}');
+    this.final_ddarray = dropdown;
+
     console.log(this.final_mapData);
     console.log(this.final_inpch_arr);
     console.log(this.final_ruleArr);
     console.log(this.final_username);
+    console.log(this.final_ddarray);
+
     
 
     //   CODE FOR FIREBASE INTEGRATION
@@ -81,7 +108,8 @@ export class NavbarcompComponent  implements OnInit {
       name:this.final_username as unknown as string,
       array1:this.final_inpch_arr,
       array2:this.final_ruleArr,
-      mapdata:mapObject
+      mapdata:mapObject,
+      dropdown_data:this.final_ddarray
     }
     addDoc(collectionInstance,(data))
     .then(()=>{
@@ -136,11 +164,14 @@ export class NavbarcompComponent  implements OnInit {
          }
         });
 
+        this.Input = Number(this.Input.toFixed(2));
     console.log(this.Input);
     //  this.myserv1.inpch_array = this.inpvalu_array;
     console.log(this.myserv1.inpch_array);
     localStorage.setItem('inpch_Data',JSON.stringify(this.inpvalu_array));
-
+    // seting the dropdow data to ls
+    this.onSelect5();
+    localStorage.setItem('dropdown_table',JSON.stringify(this.final_matrix));
 
 
     const a = this.Input as unknown as string;
@@ -173,6 +204,107 @@ export class NavbarcompComponent  implements OnInit {
   onOptionSelected(event: Event) {
     const value = (event.target as HTMLSelectElement).value;
     console.log(value);
+  }
+
+  onSelect1(state: any){
+    // console.log(state.target.value);
+    this.level1 = state.target.value;
+    this.hierar2 = this.myserv1.hierar2().filter(e=> e.idL1 == state.target.value);
+
+  }
+
+  onSelect2(state:any)
+  {
+    this.level2 = state.target.value;
+    // console.log(this.level1);
+    // console.log(this.level2);
+    
+    if(this.level1==1)
+    {
+      this.produc_arr = this.myserv1.hierar3().filter(e=>e.idL1==this.level2);
+    }
+    else if(this.level1==2)
+    {
+      this.produc_arr = this.myserv1.hierar3().filter(e=>e.idL2==this.level2);
+    }
+    else if(this.level1==3)
+    {
+      this.produc_arr = this.myserv1.hierar3().filter(e=>e.idL3==this.level2);
+    }
+
+    // console.log(this.produc_arr);
+    for( const obj of this.produc_arr)
+    {
+      this.product_selected.push(obj.name);
+      this.minVal.push(obj.valuee);
+    }
+    const minValue = Math.min(...this.minVal);
+    console.log(this.product_selected);
+    // console.log(minValue);
+    this.Input = minValue;
+  }
+
+  onSelect3(state: any){
+    // console.log(state.target.value);
+    this.cust_level1 = state.target.value;
+    this.customer_hierar2 = this.myserv1.customer_hierar2().filter(e=> e.idL1 == state.target.value);
+  }
+
+  onSelect4(state:any)
+  {
+    this.cust_level2 = state.target.value;
+    // console.log(this.level1);
+    // console.log(this.level2);
+    
+    if(this.cust_level1==1)
+    {
+      this.customer_arr = this.myserv1.customer_hierar3().filter(e=>e.idL1==this.cust_level2);
+    }
+    else if(this.cust_level1==2)
+    {
+      this.customer_arr = this.myserv1.customer_hierar3().filter(e=>e.idL2==this.cust_level2);
+    }
+    else if(this.cust_level1==3)
+    {
+      this.customer_arr = this.myserv1.customer_hierar3().filter(e=>e.idL3==this.cust_level2);
+    }
+
+    // console.log(this.produc_arr);
+    for( const obj of this.customer_arr)
+    {
+      this.customer_selected.push(obj.name);
+      // this.minVal.push(obj.valuee);
+    }
+    // const minValue = Math.min(...this.minVal);
+    console.log(this.customer_selected);
+    // console.log(minValue);
+    // this.Input = minValue;
+  }
+
+  onSelect5(){
+    const arr1 = this.customer_selected;
+    const arr2 = this.produc_arr;
+    const final_price = this.Input;
+
+    for(const customer of arr1)
+    {
+      const cstmr = customer;
+      for(const product of arr2)
+      {
+        const item = product;
+        const item_name = item.name;
+        const item_price = item.valuee;
+        const obj = {
+          customer : cstmr,
+          item : item_name,
+          item_i_price:item_price,
+          item_f_price:final_price
+        };
+        this.final_matrix.push(obj);
+      }
+    }
+
+    console.log(this.final_matrix);
   }
 
 }

@@ -44,18 +44,32 @@ display: flex;
 
 // width: 1361px;
 // height: 65px;
-flex-shrink: 0;
+// flex-shrink: 0;
 border-radius: 7px;
-border: 1px solid #EDEDED;
-background: #FFF;
+border: 1px solid #E1E1E1;
+// background: #FFF;
 margin-left: 10px;
 margin-right: 10px;
 margin-top: 10px;
 display: flex;
 flex-direction: row;
+// justify-content: space-between;
 }
 
 .inputbox{
     margin: 7px 7px 7px 7px;
 }
 
+.ddeachbox{
+    border-radius: 3px;
+    border: 1px solid #E1E1E1;
+    background: #FFF;
+    }
+
+    .ind_dd{
+        // padding: 20px 20px 20px 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+     }

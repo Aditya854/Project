@@ -2,6 +2,7 @@ import { Component,ElementRef ,ViewChild,OnInit } from '@angular/core';
 import {fabric} from 'fabric';
 import { DragDropModule} from '@angular/cdk/drag-drop';
 import { Serv1Service } from '../services/serv1.service';
+import { ToastrService } from 'ngx-toastr';
 import {
   CdkDragDrop,
   CdkDragEnter,
@@ -35,7 +36,7 @@ export class CanvasCompComponent  implements OnInit {
   val3=true;
   isShowDiv = true;
   @ViewChild('canvas',{static:true}) myCanvas!:ElementRef;
-  constructor(private sharedService: Serv1Service) { }
+  constructor(private sharedService: Serv1Service,private toastr: ToastrService) { }
   items = this.sharedService.seritems;
 
   ngOnInit():void{
@@ -45,6 +46,7 @@ export class CanvasCompComponent  implements OnInit {
 
   onclick4()
   {
+    this.toastr.success('Rules Populated');
       const mapArray = JSON.parse(localStorage.getItem('mapData') || '{}');
       this.mapData = new Map<number,object>(mapArray);
        
