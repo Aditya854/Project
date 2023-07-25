@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Serv1Service } from '../services/serv1.service';
 import { AlertController } from '@ionic/angular';
 import { Firestore,addDoc,collection,collectionData } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
 // import { error } from 'console';
 
 // import {app} from '../firebaseconfig';
@@ -27,7 +28,7 @@ export class NavbarcompComponent  implements OnInit {
    final_inpch_arr: any;
    final_username:any;
 
-  constructor(private myserv1:Serv1Service, private alertcontroller:AlertController, private firestore:Firestore) { }
+  constructor(private myserv1:Serv1Service, private alertcontroller:AlertController, private firestore:Firestore,private toastr:ToastrService) { }
   items = this.myserv1.seritems;
   ngOnInit() {}
 
@@ -93,6 +94,7 @@ export class NavbarcompComponent  implements OnInit {
 
 
     //   CODE FOR FIREBASE ENDS HERE
+    this.toastr.success('Workflow saved succesfully');
   }
 
 

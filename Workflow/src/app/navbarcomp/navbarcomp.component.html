@@ -30,7 +30,11 @@
 
 <div class="hheader">
   <div class="myclass">
-  <ion-title style="color: aliceblue;">Workflow Creation</ion-title>
+    <!-- <div> -->
+      <button class="page2button" [routerLink]="['/home']">Back</button>
+    <!-- </div> -->
+    
+  <ion-title style="color: aliceblue; margin-left: 20px; justify-content: center;">Workflow Creation</ion-title>
   <button class="page2button" [routerLink]="['/page3']">Set Rules</button>
   <!-- add the buttons -->
   <button type="button" class="page2button" (click)="onclick3()">Save</button>

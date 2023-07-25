@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, platformBrowser } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +20,9 @@ import { AlertController } from '@ionic/angular';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 // import {saveAs} from 'file-saver';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyD4ygIa3XUMhhPsJY6f8clbtmAGu88TbgI",
@@ -43,7 +46,10 @@ const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    CdkDrag],
+    CdkDrag,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Serv1Service,AlertController],
   bootstrap: [AppComponent],
 })

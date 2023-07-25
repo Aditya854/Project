@@ -6,20 +6,20 @@
 </div>
 
 <ion-content>
-    <table style="width: 100%;">
+    <table style="width: 100%; margin-left: 10px;">
       <thead>
           <tr>
             <th>SER NO.</th>
               <th>CREATOR'S NAME</th>
-              <th>TIMESTAMP</th>
+              <!-- <th>TIMESTAMP</th> -->
               <th>ACTION</th>
           </tr>
       </thead>
       <tr *ngFor="let hero of Listdata|async; index as i">
         <td>{{i+1}}</td>
         <td>{{hero.name}}</td>
-        <td>Timestamp</td>
-        <td> <button class='btn btn-danger' (click)="Redirectingfn()">Edit</button> </td> 
+        <!-- <td>Timestamp</td> -->
+        <td> <button class='page4button' (click)="Redirectingfn()">Edit</button> </td> 
       </tr>
     </table>
 </ion-content>

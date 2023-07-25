@@ -3,6 +3,7 @@ import { Serv1Service } from '../services/serv1.service';
 import { myData } from '../data';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-page3',
@@ -34,7 +35,7 @@ export class Page3Page implements OnInit {
   editindex:number=0;
   paramsSub!: Subscription;
  
-  constructor(private myserv1:Serv1Service,private activateRoute: ActivatedRoute) { }
+  constructor(private myserv1:Serv1Service,private activateRoute: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.myInitialisation();
@@ -139,6 +140,8 @@ export class Page3Page implements OnInit {
 
     const mapArray = Array.from(this.myMap.entries());
     localStorage.setItem('mapData',JSON.stringify(mapArray));
+
+    this.toastr.success('Rule Updated Succesfully');
   }
 
   onclick() {
@@ -167,6 +170,9 @@ export class Page3Page implements OnInit {
     console.log("hello");
 
     localStorage.setItem('mapData',JSON.stringify(mapArray));
+    
+    // toast code here
+    this.toastr.success('Rules succesfully stored to LS');
   }
 
   onclick3()
