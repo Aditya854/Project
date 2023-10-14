@@ -11,14 +11,14 @@
           <tr>
             <th>SER NO.</th>
               <th>CREATOR'S NAME</th>
-              <!-- <th>TIMESTAMP</th> -->
+              <th>TIMESTAMP</th>
               <th>ACTION</th>
           </tr>
       </thead>
       <tr *ngFor="let hero of Listdata|async; index as i">
         <td>{{i+1}}</td>
         <td>{{hero.name}}</td>
-        <!-- <td>Timestamp</td> -->
+        <td>{{hero.created.toDate() | date: 'dd MMM - hh:mm'}}</td>
         <td> <button class='page4button' (click)="Redirectingfn()">Edit</button> </td> 
       </tr>
     </table>
