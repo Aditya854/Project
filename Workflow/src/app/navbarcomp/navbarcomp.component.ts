@@ -2,7 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Serv1Service } from '../services/serv1.service';
 import { AlertController } from '@ionic/angular';
-import { Firestore,addDoc,collection,collectionData } from '@angular/fire/firestore';
+import { Firestore,addDoc,collection,collectionData, serverTimestamp } from '@angular/fire/firestore';
 import { ToastrService } from 'ngx-toastr';
 // import { error } from 'console';
 
@@ -109,7 +109,8 @@ export class NavbarcompComponent  implements OnInit {
       array1:this.final_inpch_arr,
       array2:this.final_ruleArr,
       mapdata:mapObject,
-      dropdown_data:this.final_ddarray
+      dropdown_data:this.final_ddarray,
+      created:serverTimestamp()
     }
     addDoc(collectionInstance,(data))
     .then(()=>{
